@@ -56,8 +56,7 @@ if [[ ! -z "$RD_NODE_SSH_OPTS" ]] ; then
     SSHOPTS="$SSHOPTS $RD_NODE_SSH_OPTS"
 fi
 
-
-RUNSSH="ssh $SSHOPTS $USER@$HOST $CMD"
+RUNSSH="ssh $SSHOPTS $USER@$HOST source $RD_CONFIG_ENVIFLE && $CMD"
 
 #if ssh-test is set to "true", do a dry run
 if [[ "true" == "$RD_NODE_SSH_TEST" ]] ; then
